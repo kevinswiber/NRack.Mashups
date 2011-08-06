@@ -1,4 +1,7 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
+using System.IO;
+using System.Reflection;
 using Jurassic;
 using Jurassic.Library;
 
@@ -6,23 +9,21 @@ namespace Mixup
 {
     public class JavaScriptEvaluator
     {
-        public ObjectInstance Evaluate(string source, IDictionary<string, dynamic> environment)
-        {
-            var engine = new ScriptEngine();
-            engine.Evaluate(source);
-            return engine.CallGlobalFunction<ObjectInstance>("call", new Environment(engine, environment));
-        }
-    }
+        private static readonly ScriptEngine Engine = JurassicBootstrapper.GetScriptEngine();
 
-    public class Environment : ObjectInstance
-    {
-        public Environment(ScriptEngine engine, IDictionary<string, dynamic> environment)
-            : base(engine)
+        public ObjectInstance Evaluate(string fileName)
         {
-            foreach(var key in environment.Keys)
+            var baseDir = AppDomain.CurrentDomain.BaseDirectory;
+            fileName = Path.Combine(baseDir, fileName);
+
+            var module = Engine.CallGlobalFunction("require", fileName) as ObjectInstance;
+
+            if (module == null)
             {
-                base.DefineProperty(key, new PropertyDescriptor(environment[key], PropertyAttributes.FullAccess), true);
+                throw new InvalidOperationException("File does not exist: " + fileName);
             }
+
+            return module;
         }
     }
 }

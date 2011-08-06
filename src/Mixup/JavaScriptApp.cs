@@ -1,35 +1,24 @@
-using System;
 using System.Collections.Generic;
-using System.IO;
+using Jurassic.Library;
 using NRack;
 
 namespace Mixup
 {
     public class JavaScriptApp : ICallable
     {
-        private static readonly IDictionary<string, string> SourceStorage = new Dictionary<string, string>();
-        private readonly string _javaScriptSource;
+        private readonly ObjectInstance _objectInstance;
 
-        public JavaScriptApp(string fileName)
+        public JavaScriptApp(ObjectInstance obj)
         {
-            var baseDir = AppDomain.CurrentDomain.BaseDirectory;
-            fileName = Path.Combine(baseDir, fileName);
-
-            if (!SourceStorage.ContainsKey(fileName))
-            {
-                using (var streamReader = new StreamReader(fileName))
-                {
-                    SourceStorage[fileName] = streamReader.ReadToEnd();
-                }
-            }
-
-            _javaScriptSource = SourceStorage[fileName];            
+            _objectInstance = obj;
         }
 
         public dynamic[] Call(IDictionary<string, dynamic> environment)
         {
-            var js = new JavaScriptEvaluator().Evaluate(_javaScriptSource, environment);
-            return new JavaScriptAppResponseConverter().ConvertJavaScriptResponse(js);
+            var response = _objectInstance.CallMemberFunction("call", 
+                new Environment(_objectInstance.Engine, environment)) as ObjectInstance;
+
+            return new JavaScriptAppResponseConverter().ConvertJavaScriptResponse(response);
         }
     }
 }

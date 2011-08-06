@@ -1,4 +1,4 @@
-﻿function call(env) {
+﻿exports.call = function (env) {
     if (env["PATH_INFO"] === "/") {
         return {
             status: 200,
@@ -12,4 +12,4 @@
         headers: { "Content-Type": "text/plain" },
         body: ["Not found."]
     };
-}
+};
