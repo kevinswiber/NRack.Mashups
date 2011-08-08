@@ -32,8 +32,8 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="Jurassic">
-      <HintPath>..\..\packages\Jurassic.2.1.0\lib\net40\Jurassic.dll</HintPath>
+    <Reference Include="IronJS">
+      <HintPath>..\..\packages\IronJS.Core.0.2.0.1\lib\net40\IronJS.dll</HintPath>
     </Reference>
     <Reference Include="Microsoft.CSharp" />
     <Reference Include="NRack">
@@ -56,15 +56,73 @@
     <Reference Include="System.EnterpriseServices" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="app\printEnvironment.js">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="app\queryString.js">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
     <Content Include="config.js">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
     <Content Include="app\echo.js">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="app\hello_world.js">
+    <Content Include="app\helloWorld.js">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
+    <Content Include="lib\jade\.gitignore" />
+    <Content Include="lib\jade\.gitmodules" />
+    <Content Include="lib\jade\benchmarks\common.js" />
+    <Content Include="lib\jade\benchmarks\ejs.js" />
+    <Content Include="lib\jade\benchmarks\haml.js" />
+    <Content Include="lib\jade\benchmarks\haml2.js" />
+    <Content Include="lib\jade\benchmarks\jade-self.js" />
+    <Content Include="lib\jade\benchmarks\jade.js" />
+    <Content Include="lib\jade\examples\attributes.js" />
+    <Content Include="lib\jade\examples\code.js" />
+    <Content Include="lib\jade\examples\conditionals.js" />
+    <Content Include="lib\jade\examples\csrf.js" />
+    <Content Include="lib\jade\examples\dynamicscript.js" />
+    <Content Include="lib\jade\examples\each.js" />
+    <Content Include="lib\jade\examples\form.js" />
+    <Content Include="lib\jade\examples\includes.js" />
+    <Content Include="lib\jade\examples\layout-debug.js" />
+    <Content Include="lib\jade\examples\layout.js" />
+    <Content Include="lib\jade\examples\mixins.js" />
+    <Content Include="lib\jade\examples\model.js" />
+    <Content Include="lib\jade\examples\nested-filters.js" />
+    <Content Include="lib\jade\examples\rss.js" />
+    <Content Include="lib\jade\examples\text.js" />
+    <Content Include="lib\jade\examples\whitespace.js" />
+    <Content Include="lib\jade\index.js" />
+    <Content Include="lib\jade\jade.js" />
+    <Content Include="lib\jade\jade.min.js" />
+    <Content Include="lib\jade\lib\compiler.js" />
+    <Content Include="lib\jade\lib\doctypes.js" />
+    <Content Include="lib\jade\lib\filters.js" />
+    <Content Include="lib\jade\lib\index.js" />
+    <Content Include="lib\jade\lib\inline-tags.js" />
+    <Content Include="lib\jade\lib\jade.js" />
+    <Content Include="lib\jade\lib\lexer.js" />
+    <Content Include="lib\jade\lib\nodes\block-comment.js" />
+    <Content Include="lib\jade\lib\nodes\block.js" />
+    <Content Include="lib\jade\lib\nodes\code.js" />
+    <Content Include="lib\jade\lib\nodes\comment.js" />
+    <Content Include="lib\jade\lib\nodes\doctype.js" />
+    <Content Include="lib\jade\lib\nodes\each.js" />
+    <Content Include="lib\jade\lib\nodes\filter.js" />
+    <Content Include="lib\jade\lib\nodes\index.js" />
+    <Content Include="lib\jade\lib\nodes\mixin.js" />
+    <Content Include="lib\jade\lib\nodes\node.js" />
+    <Content Include="lib\jade\lib\nodes\tag.js" />
+    <Content Include="lib\jade\lib\nodes\text.js" />
+    <Content Include="lib\jade\lib\parser.js" />
+    <Content Include="lib\jade\lib\self-closing.js" />
+    <Content Include="lib\jade\lib\utils.js" />
+    <Content Include="lib\jade\support\compile.js" />
+    <Content Include="lib\jade\test\filters.test.js" />
+    <Content Include="lib\jade\test\jade.test.js" />
     <Content Include="Web.config">
       <SubType>Designer</SubType>
     </Content>
@@ -76,7 +134,6 @@
     </Content>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Config.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -84,6 +141,50 @@
       <Project>{F5382250-28C5-421A-931F-39A5AC9C3B1C}</Project>
       <Name>Mixup</Name>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="lib\jade\.npmignore" />
+    <None Include="lib\jade\benchmarks\example-self.jade" />
+    <None Include="lib\jade\benchmarks\example.ejs" />
+    <None Include="lib\jade\benchmarks\example.haml" />
+    <None Include="lib\jade\benchmarks\example.jade" />
+    <None Include="lib\jade\benchmarks\example2.haml" />
+    <None Include="lib\jade\bin\jade" />
+    <None Include="lib\jade\examples\attributes.jade" />
+    <None Include="lib\jade\examples\code.jade" />
+    <None Include="lib\jade\examples\conditionals.jade" />
+    <None Include="lib\jade\examples\csrf.jade" />
+    <None Include="lib\jade\examples\dynamicscript.jade" />
+    <None Include="lib\jade\examples\each.jade" />
+    <None Include="lib\jade\examples\form.jade" />
+    <None Include="lib\jade\examples\includes.jade" />
+    <None Include="lib\jade\examples\includes\foot.jade" />
+    <None Include="lib\jade\examples\includes\head.jade" />
+    <None Include="lib\jade\examples\layout.jade" />
+    <None Include="lib\jade\examples\mixins.jade" />
+    <None Include="lib\jade\examples\mixins\dialog.jade" />
+    <None Include="lib\jade\examples\mixins\profile.jade" />
+    <None Include="lib\jade\examples\model.jade" />
+    <None Include="lib\jade\examples\nested-filters.jade" />
+    <None Include="lib\jade\examples\rss.jade" />
+    <None Include="lib\jade\examples\text.jade" />
+    <None Include="lib\jade\examples\whitespace.jade" />
+    <None Include="lib\jade\History.md" />
+    <None Include="lib\jade\LICENSE" />
+    <None Include="lib\jade\Makefile" />
+    <None Include="lib\jade\package.json" />
+    <None Include="lib\jade\Readme.md" />
+    <None Include="lib\jade\test\fixtures\invalid.jade" />
+    <None Include="lib\jade\test\fixtures\layout.jade" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="lib\jade\benchmarks\ejs\" />
+    <Folder Include="lib\jade\benchmarks\haml-js\" />
+    <Folder Include="lib\jade\benchmarks\haml\" />
+    <Folder Include="lib\jade\support\coffee-script\" />
+    <Folder Include="lib\jade\support\expresso\" />
+    <Folder Include="lib\jade\support\sass\" />
+    <Folder Include="lib\jade\support\stylus\" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v10.0\WebApplications\Microsoft.WebApplication.targets" />

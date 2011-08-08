@@ -1,6 +1,9 @@
-﻿var echo = require('app/echo'),
-    helloWorld = require('app/hello_world');
+﻿var echo = require('./app/echo'),
+    helloWorld = require('./app/helloWorld'),
+    printEnvironment = require('./app/printEnvironment'),
+    queryString = require('./app/queryString');
 
-map('/', function () { run(helloWorld); });
-map('/echo', function() { run(echo); });
-//run(helloWorld);
+use(printEnvironment);
+use(queryString);
+map('/', function (config) { config.run(helloWorld); });
+map('/echo', function (config) { config.run(echo); });

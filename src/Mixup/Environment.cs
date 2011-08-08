@@ -1,17 +1,16 @@
 ﻿using System.Collections.Generic;
-using Jurassic;
-using Jurassic.Library;
+using IronJS;
 
 namespace Mixup
 {
-    public class Environment : ObjectInstance
+    public class Environment : CommonObject
     {
-        public Environment(ScriptEngine engine, IDictionary<string, object> environment)
-            : base(engine)
+        public Environment(IDictionary<string, object> environment, IronJS.Environment env, CommonObject prototype) 
+            : base(env, env.Maps.Base, prototype)
         {
             foreach(var key in environment.Keys)
             {
-                base.DefineProperty(key, new PropertyDescriptor(environment[key], PropertyAttributes.FullAccess), true);
+                Put(key, environment[key].ToString());
             }
         }
     }
