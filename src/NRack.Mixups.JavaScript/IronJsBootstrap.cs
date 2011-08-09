@@ -12,7 +12,7 @@ namespace Mixup
         private static bool _isInitialized;
         private static readonly object SyncLock = new object();
 
-        public static void Initialize()
+        public static CSharp.Context Initialize()
         {
             if (!_isInitialized)
             {
@@ -28,10 +28,7 @@ namespace Mixup
                     }
                 }
             }
-        }
 
-        public static CSharp.Context GetContext()
-        {
             return Context;
         }
 
