@@ -35,7 +35,6 @@ namespace NRack.Mixups.JavaScript
 
         private void WireUpJavaScriptConfigurationObject(CSharp.Context context)
         {
-
             var prototype = context.Environment.NewObject();
             var constructor = IronJS.Native.Utils.CreateConstructor<Func<FunctionObject, CommonObject, CommonObject>>(
                 context.Environment, 0, (ctor, _) =>

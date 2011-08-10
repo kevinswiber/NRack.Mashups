@@ -55,20 +55,29 @@ namespace NRack.Mixups.JavaScript
         public static string ReadSource(string fileName)
         {
             fileName = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, fileName);
-            var sourceStorage = SourceStorage.Instance.Sources;
-            if (!sourceStorage.ContainsKey(fileName))
-            {
-                using (var streamReader = new StreamReader(fileName))
-                {
-                    sourceStorage[fileName] = streamReader.ReadToEnd();
-                }
+            //var sourceStorage = SourceStorage.Instance.Sources;
+            //if (!sourceStorage.ContainsKey(fileName))
+            //{
+            //    sourceStorage[fileName] = ReadFile(fileName);
+            //    Context.SetGlobal("sourceStorage", SourceStorage.Instance);
+            //}
 
-                Context.SetGlobal("sourceStorage", SourceStorage.Instance);
-            }
-
-            var source = sourceStorage[fileName];
+            //var source = sourceStorage[fileName];
+            var source = ReadFile(fileName);
 
             return source;
+        }
+
+        private static string ReadFile(string fileName)
+        {
+            string contents;
+
+            using (var streamReader = new StreamReader(fileName))
+            {
+                contents = streamReader.ReadToEnd();
+            }
+
+            return contents;
         }
     }
 }

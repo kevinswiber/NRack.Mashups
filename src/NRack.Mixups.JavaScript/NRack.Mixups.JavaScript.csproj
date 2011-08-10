@@ -67,7 +67,7 @@
     <Compile Include="Interop\EnvironmentJsObject.cs" />
     <Compile Include="IronJsBootstrap.cs" />
     <Compile Include="JavaScriptApp.cs" />
-    <Compile Include="JavaScriptAppResponseConverter.cs">
+    <Compile Include="Interop\JavaScriptAppResponseConverter.cs">
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="Interop\AppJsObject.cs" />

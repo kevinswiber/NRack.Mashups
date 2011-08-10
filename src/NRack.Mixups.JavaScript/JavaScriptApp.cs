@@ -32,7 +32,7 @@ namespace NRack.Mixups.JavaScript
             }
 
             var response = ((FunctionObject) _objectInstance.Members["call"])
-                .Call(_objectInstance, new EnvironmentJsObject(environment, _objectInstance.Env, null)).Object;
+                .Call(_objectInstance, new EnvironmentJsObject(environment, _objectInstance.Env, _objectInstance.Env.NewPrototype())).Object;
             return new JavaScriptAppResponseConverter().ConvertJavaScriptResponse(response);
         }
     }

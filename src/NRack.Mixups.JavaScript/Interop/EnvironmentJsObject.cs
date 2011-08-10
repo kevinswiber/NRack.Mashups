@@ -15,6 +15,7 @@ namespace NRack.Mixups.JavaScript.Interop
                 if (key == "rack.input")
                 {
                     Put(key, new JsStream(env, environment[key] as Stream));
+                    continue;
                 }
 
                 Put(key, environment[key].ToString());
@@ -26,8 +27,8 @@ namespace NRack.Mixups.JavaScript.Interop
             public JsStream(IronJS.Environment env, Stream stream) 
                 : base(env, env.NewPrototype())
             {
-                Put("read",
-                    IronJS.Native.Utils.CreateFunction<Func<string>>(env, 0,
+                Put("readToEnd",
+                    IronJS.Native.Utils.CreateFunction<Func<CommonObject>>(env, 0,
                         () =>
                         {
                             if (stream == null)
@@ -44,7 +45,7 @@ namespace NRack.Mixups.JavaScript.Interop
                                 strm.Close();
                             }
 
-                            return input;
+                            return env.NewString(input);
                         }));
             }
         }
