@@ -2,7 +2,7 @@ using System;
 using System.IO;
 using IronJS.Hosting;
 
-namespace Mixup
+namespace NRack.Mixups.JavaScript
 {
     public class IronJsBootstrap
     {
@@ -37,7 +37,7 @@ namespace Mixup
             string commonJS;
 
             var assembly = typeof(IronJsBootstrap).Assembly;
-            using (var stream = assembly.GetManifestResourceStream("Mixup.common.js"))
+            using (var stream = assembly.GetManifestResourceStream("NRack.Mixups.JavaScript.common.js"))
             {
                 if (stream == null)
                 {

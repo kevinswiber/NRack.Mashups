@@ -1,7 +1,7 @@
 ﻿using System.Collections.Concurrent;
 using System.Collections.Generic;
 
-namespace Mixup
+namespace NRack.Mixups.JavaScript
 {
     public class SourceStorage
     {
