@@ -2,7 +2,7 @@ using System;
 using System.IO;
 using IronJS.Hosting;
 
-namespace Mixup
+namespace NRack.Mixups.JavaScript
 {
     public class IronJsBootstrap
     {
@@ -12,7 +12,7 @@ namespace Mixup
         private static bool _isInitialized;
         private static readonly object SyncLock = new object();
 
-        public static void Initialize()
+        public static CSharp.Context Initialize()
         {
             if (!_isInitialized)
             {
@@ -28,10 +28,7 @@ namespace Mixup
                     }
                 }
             }
-        }
 
-        public static CSharp.Context GetContext()
-        {
             return Context;
         }
 
@@ -40,7 +37,7 @@ namespace Mixup
             string commonJS;
 
             var assembly = typeof(IronJsBootstrap).Assembly;
-            using (var stream = assembly.GetManifestResourceStream("Mixup.common.js"))
+            using (var stream = assembly.GetManifestResourceStream("NRack.Mixups.JavaScript.common.js"))
             {
                 if (stream == null)
                 {

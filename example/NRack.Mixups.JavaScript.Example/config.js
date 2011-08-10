@@ -4,7 +4,7 @@
     queryString = require('./app/queryString'),
     methodOverride = require('./app/methodOverride');
 
-//use(methodOverride);
+use(methodOverride);
 use(printEnvironment);
 
 map('/', function (config) {

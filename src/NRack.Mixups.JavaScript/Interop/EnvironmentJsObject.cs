@@ -3,11 +3,11 @@ using System.Collections.Generic;
 using System.IO;
 using IronJS;
 
-namespace Mixup
+namespace NRack.Mixups.JavaScript.Interop
 {
-    public class Environment : CommonObject
+    public class EnvironmentJsObject : CommonObject
     {
-        public Environment(IDictionary<string, object> environment, IronJS.Environment env, CommonObject prototype) 
+        public EnvironmentJsObject(IDictionary<string, object> environment, IronJS.Environment env, CommonObject prototype) 
             : base(env, env.Maps.Base, prototype)
         {
             foreach(var key in environment.Keys)

@@ -1,9 +1,8 @@
 using System.Collections.Generic;
-using System.Linq;
 using IronJS;
 using NRack.Helpers;
 
-namespace Mixup
+namespace NRack.Mixups.JavaScript
 {
     public class JavaScriptAppResponseConverter
     {

@@ -6,7 +6,7 @@ exports.initialize = function (application) {
 
 exports.call = function (env) {
     //var request = env["rack.input"].read();
-    console.log(typeof (env["rack.input"]));
+    //print(typeof (env["rack.input"]));
     //    var reqArray = request.split('&');
 
     //    for (var i = 0; i < reqArray.length; i++) {
