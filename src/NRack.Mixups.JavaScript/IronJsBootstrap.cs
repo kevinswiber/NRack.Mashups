@@ -1,5 +1,8 @@
 using System;
+using System.Collections.Generic;
 using System.IO;
+using System.Reflection;
+using IronJS;
 using IronJS.Hosting;
 
 namespace NRack.Mixups.JavaScript
@@ -20,6 +23,12 @@ namespace NRack.Mixups.JavaScript
                 {
                     if (!_isInitialized)
                     {
+                        //IncludeAssemblies(new[]
+                        //                      {
+                        //                          typeof(object).Assembly, // System.Core
+                        //                          typeof(Activator).Assembly, // mscorlib
+                        //                          typeof(Uri).Assembly // System
+                        //                      });
                         Context.Execute(CommonJS);
                         Context.SetGlobal("read", 
                             IronJS.Native.Utils.CreateFunction<Func<string, string>>(Context.Environment, 1, ReadSource));
@@ -30,6 +39,40 @@ namespace NRack.Mixups.JavaScript
             }
 
             return Context;
+        }
+
+        private static void IncludeAssemblies(IEnumerable<Assembly> assemblies)
+        {
+            foreach(var assembly in assemblies)
+            {
+                IncludeAssembly(assembly);
+            }
+        }
+
+        private static void IncludeAssembly(Assembly assembly)
+        {
+            foreach(var type in assembly.GetExportedTypes())
+            {
+                var names = type.FullName.Split('.');
+
+                var table = Context.Globals;
+                for (var i = 0; i < names.Length - 1; i++)
+                {
+                    var name = names[i];
+                    if (table.Members.ContainsKey(name))
+                    {
+                        table = (CommonObject)table.Members[name];
+                    }
+                    else
+                    {
+                        var tmp = table.Env.NewObject();
+                        table.Put(name, tmp);
+                        table = tmp;
+                    }
+                }
+
+                table.Put(names[names.Length - 1], type);
+            }
         }
 
         private static string GetCommonJS()

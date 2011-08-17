@@ -27,7 +27,7 @@ namespace NRack.Mixups.JavaScript.Interop
             public JsStream(IronJS.Environment env, Stream stream) 
                 : base(env, env.NewPrototype())
             {
-                Put("readToEnd",
+                Put("read",
                     IronJS.Native.Utils.CreateFunction<Func<CommonObject>>(env, 0,
                         () =>
                         {
