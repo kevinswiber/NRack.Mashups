@@ -3,9 +3,9 @@ using System.IO;
 using IronJS;
 using IronJS.Hosting;
 using NRack.Configuration;
-using NRack.Mixups.JavaScript.Interop;
+using NRack.Mashups.JavaScript.Interop;
 
-namespace NRack.Mixups.JavaScript
+namespace NRack.Mashups.JavaScript
 {
     public class Config : ConfigBase
     {

@@ -2,7 +2,7 @@
 using IronJS;
 using NRack.Configuration;
 
-namespace NRack.Mixups.JavaScript.Interop
+namespace NRack.Mashups.JavaScript.Interop
 {
     public class ConfigJsObject : CommonObject
     {

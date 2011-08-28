@@ -5,7 +5,7 @@ using System.Reflection;
 using IronJS;
 using IronJS.Hosting;
 
-namespace NRack.Mixups.JavaScript
+namespace NRack.Mashups.JavaScript
 {
     public class IronJsBootstrap
     {
@@ -74,7 +74,7 @@ namespace NRack.Mixups.JavaScript
             string commonJS;
 
             var assembly = typeof(IronJsBootstrap).Assembly;
-            using (var stream = assembly.GetManifestResourceStream("NRack.Mixups.JavaScript.common.js"))
+            using (var stream = assembly.GetManifestResourceStream("NRack.Mashups.JavaScript.common.js"))
             {
                 if (stream == null)
                 {

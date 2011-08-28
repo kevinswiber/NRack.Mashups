@@ -2,7 +2,7 @@ using System.Collections.Generic;
 using IronJS;
 using NRack.Helpers;
 
-namespace NRack.Mixups.JavaScript.Interop
+namespace NRack.Mashups.JavaScript.Interop
 {
     public class JavaScriptAppResponseConverter
     {

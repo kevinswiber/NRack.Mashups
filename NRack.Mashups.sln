@@ -1,9 +1,9 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 11.00
 # Visual Studio 2010
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NRack.Mixups.JavaScript.Example", "example\NRack.Mixups.JavaScript.Example\NRack.Mixups.JavaScript.Example.csproj", "{53016EDF-0663-4A24-86CF-5C8921781848}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NRack.Mashups.JavaScript.Example", "example\NRack.Mashups.JavaScript.Example\NRack.Mashups.JavaScript.Example.csproj", "{53016EDF-0663-4A24-86CF-5C8921781848}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NRack.Mixups.JavaScript", "src\NRack.Mixups.JavaScript\NRack.Mixups.JavaScript.csproj", "{F5382250-28C5-421A-931F-39A5AC9C3B1C}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NRack.Mashups.JavaScript", "src\NRack.Mashups.JavaScript\NRack.Mashups.JavaScript.csproj", "{F5382250-28C5-421A-931F-39A5AC9C3B1C}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

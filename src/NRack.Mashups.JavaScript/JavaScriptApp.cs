@@ -1,9 +1,9 @@
 using System;
 using System.Collections.Generic;
 using IronJS;
-using NRack.Mixups.JavaScript.Interop;
+using NRack.Mashups.JavaScript.Interop;
 
-namespace NRack.Mixups.JavaScript
+namespace NRack.Mashups.JavaScript
 {
     public class JavaScriptApp : ICallable
     {

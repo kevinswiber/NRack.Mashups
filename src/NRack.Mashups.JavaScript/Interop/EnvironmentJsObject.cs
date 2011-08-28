@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.IO;
 using IronJS;
 
-namespace NRack.Mixups.JavaScript.Interop
+namespace NRack.Mashups.JavaScript.Interop
 {
     public class EnvironmentJsObject : CommonObject
     {

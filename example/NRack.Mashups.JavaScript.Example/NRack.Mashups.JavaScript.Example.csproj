@@ -10,8 +10,8 @@
     <ProjectTypeGuids>{349c5851-65df-11da-9384-00065b846f21};{fae04ec0-301f-11d3-bf4b-00c04f79efbc}</ProjectTypeGuids>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>NRack.Mixups.JavaScript.Example</RootNamespace>
-    <AssemblyName>NRack.Mixups.JavaScript.Example</AssemblyName>
+    <RootNamespace>NRack.Mashups.JavaScript.Example</RootNamespace>
+    <AssemblyName>NRack.Mashups.JavaScript.Example</AssemblyName>
     <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
@@ -76,9 +76,9 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\..\src\NRack.Mixups.JavaScript\NRack.Mixups.JavaScript.csproj">
+    <ProjectReference Include="..\..\src\NRack.Mixups.JavaScript\NRack.Mashups.JavaScript.csproj">
       <Project>{F5382250-28C5-421A-931F-39A5AC9C3B1C}</Project>
-      <Name>NRack.Mixups.JavaScript</Name>
+      <Name>NRack.Mashups.JavaScript</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
