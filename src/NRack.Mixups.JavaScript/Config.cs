@@ -16,6 +16,8 @@ namespace NRack.Mixups.JavaScript
             WireUpJavaScriptConfigurationObject(context);
 
             var source = GetSourceString();
+                        var baseDir = AppDomain.CurrentDomain.BaseDirectory;
+            var configFile = Path.Combine(baseDir, "config.js").Replace("\\","\\\\");
 
             context.Execute(@"(function () {
                                var config = new Config();

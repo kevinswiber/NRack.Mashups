@@ -1,0 +1,20 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<publishData>
+  <publishProfile publishUrl="C:\dev\play\mixup" deleteExistingFiles="True" ftpAnonymousLogin="False" ftpPassiveMode="True" msdeploySite="" msdeploySiteID="" msdeployRemoteSitePhysicalPath="" msdeployAllowUntrustedCertificate="False" msdeploySkipExtraFilesOnServer="True" msdeployMarkAsApp="False" profileName="Profile1" publishMethod="FileSystem" replaceMatchingFiles="False" userName="" savePWD="False" userPWD="" SelectedForPublish="True">
+    <file relUrl="Web.config" publishTime="08/17/2011 14:42:13" />
+    <file relUrl="app/printEnvironment.js" publishTime="08/09/2011 12:22:25" />
+    <file relUrl="bin/NRack.Mixups.JavaScript.Example.pdb" publishTime="08/27/2011 15:23:46" />
+    <file relUrl="bin/NRack.Mixups.JavaScript.Example.dll" publishTime="08/27/2011 15:23:46" />
+    <file relUrl="bin/IronJS.dll" publishTime="08/09/2011 12:22:26" />
+    <file relUrl="bin/NRack.Mixups.JavaScript.pdb" publishTime="08/27/2011 15:23:43" />
+    <file relUrl="app/queryString.js" publishTime="08/09/2011 12:22:25" />
+    <file relUrl="app/methodOverride.js" publishTime="08/10/2011 13:16:14" />
+    <file relUrl="app/helloWorld.js" publishTime="08/09/2011 23:58:16" />
+    <file relUrl="bin/IronJS.xml" publishTime="08/09/2011 12:22:26" />
+    <file relUrl="config.js" publishTime="08/17/2011 14:39:08" />
+    <file relUrl="app/echo.js" publishTime="08/09/2011 12:22:25" />
+    <file relUrl="bin/NRack.dll" publishTime="08/23/2011 21:20:30" />
+    <file relUrl="bin/NRack.Mixups.JavaScript.dll" publishTime="08/27/2011 15:23:43" />
+    <file relUrl="bin/IronJS.pdb" publishTime="08/09/2011 12:22:26" />
+  </publishProfile>
+</publishData>

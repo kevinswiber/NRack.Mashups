@@ -23,12 +23,6 @@ namespace NRack.Mixups.JavaScript
                 {
                     if (!_isInitialized)
                     {
-                        //IncludeAssemblies(new[]
-                        //                      {
-                        //                          typeof(object).Assembly, // System.Core
-                        //                          typeof(Activator).Assembly, // mscorlib
-                        //                          typeof(Uri).Assembly // System
-                        //                      });
                         Context.Execute(CommonJS);
                         Context.SetGlobal("read", 
                             IronJS.Native.Utils.CreateFunction<Func<string, string>>(Context.Environment, 1, ReadSource));
