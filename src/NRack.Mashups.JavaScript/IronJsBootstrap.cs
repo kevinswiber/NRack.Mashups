@@ -91,7 +91,8 @@ namespace NRack.Mashups.JavaScript
 
         public static string ReadSource(string fileName)
         {
-            fileName = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, fileName);
+            var baseDirectory = new FileInfo(Config.SourceFile).DirectoryName;
+            fileName = Path.Combine(baseDirectory, fileName);
             //var sourceStorage = SourceStorage.Instance.Sources;
             //if (!sourceStorage.ContainsKey(fileName))
             //{

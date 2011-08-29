@@ -36,7 +36,8 @@
       <HintPath>..\..\packages\IronJS.Core.0.2.0.1\lib\net40\IronJS.dll</HintPath>
     </Reference>
     <Reference Include="Microsoft.CSharp" />
-    <Reference Include="NRack">
+    <Reference Include="NRack, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
       <HintPath>..\..\lib\NRack.dll</HintPath>
     </Reference>
     <Reference Include="System.Web.DynamicData" />
@@ -76,7 +77,7 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\..\src\NRack.Mixups.JavaScript\NRack.Mashups.JavaScript.csproj">
+    <ProjectReference Include="..\..\src\NRack.Mashups.JavaScript\NRack.Mashups.JavaScript.csproj">
       <Project>{F5382250-28C5-421A-931F-39A5AC9C3B1C}</Project>
       <Name>NRack.Mashups.JavaScript</Name>
     </ProjectReference>

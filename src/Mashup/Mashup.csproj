@@ -2,18 +2,21 @@
 <Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
-    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <Platform Condition=" '$(Platform)' == '' ">x86</Platform>
     <ProductVersion>8.0.30703</ProductVersion>
     <SchemaVersion>2.0</SchemaVersion>
-    <ProjectGuid>{F5382250-28C5-421A-931F-39A5AC9C3B1C}</ProjectGuid>
-    <OutputType>Library</OutputType>
+    <ProjectGuid>{A7FFCA8E-4377-4783-9224-4392DE234329}</ProjectGuid>
+    <OutputType>Exe</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>NRack.Mashups.JavaScript</RootNamespace>
-    <AssemblyName>NRack.Mashups.JavaScript</AssemblyName>
+    <RootNamespace>Mashup</RootNamespace>
+    <AssemblyName>Mashup</AssemblyName>
     <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <TargetFrameworkProfile>
+    </TargetFrameworkProfile>
     <FileAlignment>512</FileAlignment>
   </PropertyGroup>
-  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|x86' ">
+    <PlatformTarget>x86</PlatformTarget>
     <DebugSymbols>true</DebugSymbols>
     <DebugType>full</DebugType>
     <Optimize>false</Optimize>
@@ -22,7 +25,8 @@
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
-  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|x86' ">
+    <PlatformTarget>x86</PlatformTarget>
     <DebugType>pdbonly</DebugType>
     <Optimize>true</Optimize>
     <OutputPath>bin\Release\</OutputPath>
@@ -31,20 +35,14 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="FSharp.Core, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL" />
-    <Reference Include="IronJS">
-      <HintPath>..\..\packages\IronJS.Core.0.2.0.1\lib\net40\IronJS.dll</HintPath>
+    <Reference Include="Gate">
+      <HintPath>..\..\packages\Gate.0.1.4\lib\Gate.dll</HintPath>
     </Reference>
-    <Reference Include="Microsoft.Dynamic, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\..\packages\IronJS.Core.0.2.0.1\lib\net40\Microsoft.Dynamic.dll</HintPath>
+    <Reference Include="Gate.Kayak">
+      <HintPath>..\..\packages\Gate.Kayak.0.1.4\lib\Gate.Kayak.dll</HintPath>
     </Reference>
-    <Reference Include="Microsoft.Scripting, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\..\packages\IronJS.Core.0.2.0.1\lib\net40\Microsoft.Scripting.dll</HintPath>
-    </Reference>
-    <Reference Include="Microsoft.Scripting.ExtensionAttribute">
-      <HintPath>..\..\packages\IronJS.Core.0.2.0.1\lib\net40\Microsoft.Scripting.ExtensionAttribute.dll</HintPath>
+    <Reference Include="Kayak">
+      <HintPath>..\..\packages\Kayak.0.7.2\lib\Kayak.dll</HintPath>
     </Reference>
     <Reference Include="NRack, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
@@ -52,7 +50,6 @@
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
-    <Reference Include="System.Numerics" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -60,23 +57,18 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Config.cs" />
-    <Compile Include="Interop\ConfigJsObject.cs" />
-    <Compile Include="Interop\EnvironmentJsObject.cs" />
-    <Compile Include="IronJsBootstrap.cs" />
-    <Compile Include="JavaScriptApp.cs" />
-    <Compile Include="Interop\JavaScriptAppResponseConverter.cs">
-      <SubType>Code</SubType>
-    </Compile>
-    <Compile Include="Interop\AppJsObject.cs" />
+    <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="SourceStorage.cs" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="common.js" />
-  </ItemGroup>
-  <ItemGroup>
+    <None Include="app.config" />
     <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\NRack.Mashups.JavaScript\NRack.Mashups.JavaScript.csproj">
+      <Project>{F5382250-28C5-421A-931F-39A5AC9C3B1C}</Project>
+      <Name>NRack.Mashups.JavaScript</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

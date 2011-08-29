@@ -9,6 +9,22 @@ namespace NRack.Mashups.JavaScript
 {
     public class Config : ConfigBase
     {
+        private static string _sourceFile;
+        public static string SourceFile
+        {
+            get
+            {
+                if (_sourceFile == null)
+                {
+                    var baseDir = AppDomain.CurrentDomain.BaseDirectory;
+                    _sourceFile = Path.Combine(baseDir, "config.js");
+                }
+
+                return _sourceFile;
+            }
+            set { _sourceFile = value;  }
+        }
+
         public override void Start()
         {
             var context = IronJsBootstrap.Initialize();
@@ -16,8 +32,6 @@ namespace NRack.Mashups.JavaScript
             WireUpJavaScriptConfigurationObject(context);
 
             var source = GetSourceString();
-                        var baseDir = AppDomain.CurrentDomain.BaseDirectory;
-            var configFile = Path.Combine(baseDir, "config.js").Replace("\\","\\\\");
 
             context.Execute(@"(function () {
                                var config = new Config();
@@ -30,9 +44,7 @@ namespace NRack.Mashups.JavaScript
 
         private static string GetSourceString()
         {
-            var baseDir = AppDomain.CurrentDomain.BaseDirectory;
-            var configFile = Path.Combine(baseDir, "config.js");
-            return IronJsBootstrap.ReadSource(configFile);
+            return IronJsBootstrap.ReadSource(SourceFile);
         }
 
         private void WireUpJavaScriptConfigurationObject(CSharp.Context context)
@@ -47,15 +59,15 @@ namespace NRack.Mashups.JavaScript
 
             prototype.Prototype = context.Environment.Prototypes.Object;
 
-            prototype.Put("run", 
+            prototype.Put("run",
                           IronJS.Native.Utils.CreateFunction<Action<FunctionObject, CommonObject, BoxedValue>>(
                               context.Environment, 1, ConfigJsObject.Run));
 
-            prototype.Put("use", 
+            prototype.Put("use",
                           IronJS.Native.Utils.CreateFunction<Action<FunctionObject, CommonObject, CommonObject>>(
                               context.Environment, 1, ConfigJsObject.Use));
 
-            prototype.Put("map", 
+            prototype.Put("map",
                           IronJS.Native.Utils.CreateFunction<Action<FunctionObject, CommonObject, string, BoxedValue>>(
                               context.Environment, 1, ConfigJsObject.Map));
 
